@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Detail Page</title>
+
+<meta name="viewport" content="initial-scale=1.0">
+<meta charset="utf-8">
+<style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+{% endblock %}
+
+{% block body %}
+<h1>Details</h1>
+<p>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        Please key in the ID:
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Search</button><br/>
+    </form>
+
+    <!--FOR COUCHDB-->
+    <!--{% for doc in docs %}-->
+    <!--{{ doc.doc.temp }} &emsp; {{ doc.doc.IMU }} &emsp; {{ doc.doc.latitude }} &emsp; {{ doc.doc.longitude }}<br/>-->
+    <!--{% endfor %}-->
+    Temperature: {{ data.temp }} <br/>
+    IMU: {{ data.IMU }} <br/>
+    Latitude: {{ data.latitude }}<br/>
+    Longitude: {{ data.longitude }}<br/>
+
+</div>
+
+<div id="map">Map</div>
+</p>
+
+<script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: {{ data.latitude }}, lng: {{ data.longitude }} },
+          zoom: 12
+        });
+      }
+    </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWWO_95WMu6GM5A6B8w2cqPjCOQ_Wad2w&callback=initMap"
+        async defer></script>
+{% endblock %}

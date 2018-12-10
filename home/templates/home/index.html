@@ -1,23 +1,16 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<title>Home</title>
+{% endblock %}
+
 {% block body %}
 <div class="form">
     <h1>Form</h1>
     <form method="post">
         {% csrf_token %}
-        <input type="text">
-        <button type="submit">Submit</button>
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-dark">Submit</button>
     </form>
-</div>
-
-<h1>Sensor Datas:</h1>
-<div id="data">
-    <p>
-        temp = models.IntegerField()<br/>
-        IMU = models.IntegerField()<br/>
-        latitude = models.IntegerField()<br/>
-        longitude = models. IntegerField()
-    </p>
-
 </div>
 {% endblock %}

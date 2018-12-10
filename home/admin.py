@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import Sensors_Data
+from .models import SensorsData
+
 
 # Register your models here.
-admin.site.register(Sensors_Data)
+class DateAdmin(admin.ModelAdmin):
+    readonly_fields = ('created',)
+
+
+admin.site.register(SensorsData, DateAdmin)

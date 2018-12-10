@@ -1,5 +1,17 @@
+header{
+    height: 100vh;
+    background-size: cover;
+    background: url("https://www.iotworldtoday.com/files/2017/09/Internet_of_Things_abstract-4-770x285.jpg") center;
+}
+
+body {
+    background-image: url("bg.jpg");
+}
+
+span.navbar{
+    color: #fb7f4a;
+}
+
 p {
-    border: 1px solid blue;
-    padding: 30px;
-    color: 'blue';
+    color: black;
 }
