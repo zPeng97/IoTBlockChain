@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<div id="register">
+    <h3>Welcome</h3>
+    You can register your account here.
+
+    <h2>Register Form</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-dark">Register</button>
+    </form>
+</div>
+{% endblock %}

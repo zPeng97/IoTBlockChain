@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Edit Profile</title>
+{% endblock %}
+
+{% block body %}
+<h1>Please key in the updated details</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+{% endblock %}

@@ -29,11 +29,22 @@
     <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="navbar-nav mr-auto">
             <li class = "nav-item active"><a class="nav-link" href="{% url 'details' %}"><span class="navbar">Details</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'map' %}"><span class="navbar">Map</span></a></li>
             <li class="nav-item"><a class="nav-link" href="#"><span class="navbar">About Us</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'checking' %}"><span class="navbar">Checking</span></a></li>
         </ul>
 
         <ul class="navbar-nav navbar-right">
-            <li class="nav-item"><a class="nav-link" href="#"><button class = "btn btn-outline-success mr-sm-2"><span class="fas fa-sign-in-alt"></span></button></a></li>
+            {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><button class="btn btn-outline-success mr-sm-2"><span class="fas fa-sign-out-alt"></span></button></a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}"><span class="navbar">Profile</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'profile_edit' %}"><span class="navbar">Edit Profile</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/admin"><span class="navbar">Admin</span></a></li>
+            {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><button class = "btn btn-outline-success mr-sm-2"><span class="fas fa-sign-in-alt"></span></button></a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'register'  %}"><span class="navbar">Register</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/admin"><span class="navbar">Admin</span></a></li>
+            {% endif %}
         </ul>
     </div>
 

@@ -5,7 +5,8 @@ header{
 }
 
 body {
-    background-image: url("bg.jpg");
+    /*background-image: url("bg.jpg");*/
+    height: 100%;
 }
 
 span.navbar{
@@ -14,4 +15,9 @@ span.navbar{
 
 p {
     color: black;
+}
+
+#map {
+    width: 800px;
+    height: 400px;
 }
